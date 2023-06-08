@@ -88,16 +88,16 @@ export class SignalsComponent implements OnInit {
 
     // Apply filters based on the selected values in the form group
     if (this.signalsFilterGroup.value.component) {
-      this.filteredSignals = this.signals.filter(x => x.component === this.signalsFilterGroup.value.component);
+      this.filteredSignals = this.filteredSignals.filter(x => x.component === this.signalsFilterGroup.value.component);
     }
     if (this.signalsFilterGroup.value.system) {
-      this.filteredSignals = this.signals.filter(x => x.system === this.signalsFilterGroup.value.system);
+      this.filteredSignals = this.filteredSignals.filter(x => x.system === this.signalsFilterGroup.value.system);
     }
     if (this.signalsFilterGroup.value.subSystem) {
-      this.filteredSignals = this.signals.filter(x => x.subSystem === this.signalsFilterGroup.value.subSystem);
+      this.filteredSignals = this.filteredSignals.filter(x => x.subSystem === this.signalsFilterGroup.value.subSystem);
     }
     if (this.signalsFilterGroup.value.element) {
-      this.filteredSignals = this.signals.filter(x => x.element === this.signalsFilterGroup.value.element);
+      this.filteredSignals = this.filteredSignals.filter(x => x.element === this.signalsFilterGroup.value.element);
     }
 
     // Update the data source with the filtered signals

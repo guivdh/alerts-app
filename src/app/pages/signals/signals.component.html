@@ -47,7 +47,7 @@
 
 
   <div class="table-container">
-    <button mat-raised-button color="primary" class="apply" (click)="downloadFile()">
+    <button mat-raised-button color="primary" class="apply" (click)="downloadFile()" [disabled]="!filteredSignals.length">
       <mat-icon fontIcon="ios_share" class="logo"></mat-icon>
       Export
     </button>
