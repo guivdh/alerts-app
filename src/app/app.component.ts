@@ -21,16 +21,19 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Subscribe to the notifications observable to get the latest notifications
     this.notificationService.notifications$.subscribe(res => {
       this.notifications = res;
-    })
+    });
   }
 
   openCreateAlertDialog() {
+    // Open the create alert dialog
     this.dialog.open(CreateAlertDialogComponent);
   }
 
   displayNotifs() {
+    // Toggle the display of the notification box
     let el = document.getElementById('notification-box');
     if (el) {
       if (!this.displayNotifBox) {
@@ -44,16 +47,24 @@ export class AppComponent implements OnInit {
   }
 
   deleteNotif(id: number) {
+    // Delete a notification by its ID
     if (id) {
       this.notificationService.delete(id);
     }
   }
 
   markAllNotifAsRead() {
+    // Mark all notifications as read
     this.notificationService.markAllAsRead();
   }
 
   getNotificationsUnRead(): number {
+    // Get the count of unread notifications
     return this.notifications?.filter(x => !x.isRead).length;
+  }
+
+  markAsRead(notif: Notif) {
+    // Mark a notification as read
+    this.notificationService.markAsRead(notif);
   }
 }

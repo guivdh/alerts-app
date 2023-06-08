@@ -39,7 +39,7 @@ describe('AlertService', () => {
       expect(newAlert.signal).toBe(signal); // Vérifie si le signal de l'alerte est correct
       expect(newAlert.lowerThreshold).toBe(values.min); // Vérifie si la limite inférieure de l'alerte est correcte
       expect(newAlert.upperThreshold).toBe(values.max); // Vérifie si la limite supérieure de l'alerte est correcte
-      expect(notificationServiceMock.createNotification).toHaveBeenCalledWith('Alertes créée', 'alerts');
+      expect(notificationServiceMock.createNotification).toHaveBeenCalledWith('Alerte créée', 'alerts');
     }
   });
 

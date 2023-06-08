@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Signal} from "../models/signal.model";
-import {Alert} from "../models/alert.model";
-import {BehaviorSubject, Observable} from "rxjs";
+import { Injectable } from '@angular/core';
+import { Signal } from "../models/signal.model";
+import { Alert } from "../models/alert.model";
+import { BehaviorSubject, Observable } from "rxjs";
 import * as alertsDatas from '../datas/alerts.json';
-import {NotificationService} from "./notification.service";
+import { NotificationService } from "./notification.service";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,12 @@ export class AlertService {
   ) {
   }
 
+  /**
+   * Creates an alert with the specified signal and values.
+   * @param signal The signal associated with the alert.
+   * @param values The minimum and maximum threshold values.
+   * @returns The created alert or null if the parameters are invalid.
+   */
   createAlert(signal: Signal, values: any): Alert | null {
     if (signal && values.min !== null && values.max !== null) {
       const alert = {
@@ -29,12 +35,18 @@ export class AlertService {
         upperThreshold: values.max
       };
       this._alerts$.next([...this._alerts$.value, alert]);
-      this.notificationService.createNotification('Alertes créée', 'alerts')
+      this.notificationService.createNotification('Alerte créée', 'alerts');
       return alert;
     }
     return null;
   }
 
+  /**
+   * Updates the threshold values of an existing alert.
+   * @param alert The alert to update.
+   * @param values The new minimum and maximum threshold values.
+   * @returns true if the update was successful, false otherwise.
+   */
   updateAlert(alert: Alert, values: any): boolean {
     let alerts = this._alerts$.value;
     let currentAlert = alerts.find(x => x.id === alert.id);
@@ -47,6 +59,11 @@ export class AlertService {
     return false;
   }
 
+  /**
+   * Deletes an alert with the specified ID.
+   * @param id The ID of the alert to delete.
+   * @returns true if the deletion was successful, false otherwise.
+   */
   delete(id: number): boolean {
     let alerts = this._alerts$.value;
     const alert = alerts.find(x => x.id === id);

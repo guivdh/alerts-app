@@ -4,6 +4,12 @@
 
   .form-container {
     width: 60%;
+
+    p {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   mat-card {
@@ -28,6 +34,16 @@
     padding-left: 20px;
     border-left: 1px solid grey;
     color: black;
+
+    .form-auto {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .icon {
+        margin-right: 10px;
+        width: 35px;
+      }
+    }
   }
 
   .form-stepper {

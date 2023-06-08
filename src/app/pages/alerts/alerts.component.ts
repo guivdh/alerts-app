@@ -9,6 +9,7 @@ import {SignalService} from "../../services/signal.service";
 import {Signal} from "../../models/signal.model";
 import {FormBuilder} from "@angular/forms";
 import {saveAs} from "file-saver";
+import {ConfirmationDialogComponent} from "../../components/confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'app-alerts',
@@ -50,6 +51,7 @@ export class AlertsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Subscribe to alerts changes and update the table data source
     this.alertService.alerts$.subscribe(res => {
       this.alerts = res;
       this.filteredAlerts = this.alerts;
@@ -59,10 +61,12 @@ export class AlertsComponent implements OnInit {
       }
     });
 
+    // Get the signals and set select elements
     this.signals = this.signalService.getSignals();
     this.setSelectElements();
   }
 
+  // Set the select elements based on the available signals
   setSelectElements() {
     this.signals.forEach(x => {
       if (!this.components.includes(x.component)) {
@@ -85,12 +89,14 @@ export class AlertsComponent implements OnInit {
       }
     });
 
+    // Sort the select elements
     this.components.sort((a, b) => this._removeNoneNumberFromString(a) < this._removeNoneNumberFromString(b) ? -1 : 1);
     this.system.sort((a, b) => this._removeNoneNumberFromString(a) < this._removeNoneNumberFromString(b) ? -1 : 1);
     this.subSystem.sort((a, b) => this._removeNoneNumberFromString(a) < this._removeNoneNumberFromString(b) ? -1 : 1);
     this.element.sort((a, b) => this._removeNoneNumberFromString(a) < this._removeNoneNumberFromString(b) ? -1 : 1);
   }
 
+  // Open the edit dialog for the selected alert
   edit(row: Alert) {
     this.dialog.open(CreateAlertDialogComponent, {
       data: {
@@ -100,18 +106,30 @@ export class AlertsComponent implements OnInit {
     })
   }
 
+  // Delete the selected alert
   delete(row: Alert) {
-    const res = this.alertService.delete(row.id)
-    if (res) {
-      this.snackBar.open('Alerte supprimée avec succès !', undefined, {
-        horizontalPosition: 'end',
-        verticalPosition: 'bottom',
-        duration: 4000
-      });
-    }
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        text: 'Êtes-vous sûr de vouloir supprimer cette alerte ?'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        const res = this.alertService.delete(row.id);
+        if (res) {
+          this.snackBar.open('Alerte supprimée avec succès !', undefined, {
+            horizontalPosition: 'end',
+            verticalPosition: 'bottom',
+            duration: 4000
+          });
+        }
+      }
+    });
 
   }
 
+  // Apply the filter based on the selected values
   applyFilter() {
     this.filteredAlerts = this.alerts;
     if (this.alertsFilterGroup.value.component) {
@@ -140,12 +158,14 @@ export class AlertsComponent implements OnInit {
     }
   }
 
+  // Reset the filter and display all alerts
   resetFilter() {
     this.alertsFilterGroup.reset();
     this.dataSource.data = this.alerts;
     this.filteredAlerts = this.alerts;
   }
 
+  // Download the alerts as a CSV file
   downloadFile() {
     const header = Object.keys(this.filteredAlerts[0]);
     const csvRows = [];
@@ -162,10 +182,12 @@ export class AlertsComponent implements OnInit {
     saveAs(blob, 'signals.csv');
   }
 
+  // Open the create alert dialog
   createOne() {
     this.dialog.open(CreateAlertDialogComponent);
   }
 
+  // Removes non-numeric characters from a string and returns the resulting number
   private _removeNoneNumberFromString(element: string): number {
     return parseInt(element.replace(/^\D+/g, ''));
   }

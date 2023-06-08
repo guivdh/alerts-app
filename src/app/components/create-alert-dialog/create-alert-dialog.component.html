@@ -5,11 +5,11 @@
       <div *ngIf="isEdit">
         <mat-card>
           <mat-card-content>
-            <p>Signal: {{currentSignal.signalName}}</p>
-            <p>Composent: {{currentSignal.component}}</p>
-            <p>Système: {{currentSignal.system}}</p>
-            <p>Sub-système: {{currentSignal.subSystem}}</p>
-            <p>Élement: {{currentSignal.element}}</p>
+            <p>Signal: <i>{{currentSignal.signalName}}</i></p>
+            <p>Composent: <i>{{currentSignal.component}}</i></p>
+            <p>Système: <i>{{currentSignal.system}}</i></p>
+            <p>Sub-système: <i>{{currentSignal.subSystem}}</i></p>
+            <p>Élément: <i>{{currentSignal.element}}</i></p>
           </mat-card-content>
         </mat-card>
 
@@ -24,7 +24,7 @@
               </mat-select>
             </mat-form-field>
             <div>
-              <button mat-button matStepperNext [disabled]="!createAlertFormGroup.controls.component.value">Next</button>
+              <button mat-button matStepperNext [disabled]="!createAlertFormGroup.controls.component.value">Suivant</button>
             </div>
           </mat-step>
           <mat-step [completed]="!!createAlertFormGroup.controls.system.value">
@@ -35,7 +35,7 @@
               </mat-select>
             </mat-form-field>
             <div>
-              <button mat-button matStepperNext [disabled]="!createAlertFormGroup.controls.system.value">Next</button>
+              <button mat-button matStepperNext [disabled]="!createAlertFormGroup.controls.system.value">Suivant</button>
             </div>
           </mat-step>
           <mat-step [completed]="!!createAlertFormGroup.controls.subSystem.value">
@@ -46,7 +46,7 @@
               </mat-select>
             </mat-form-field>
             <div>
-              <button mat-button matStepperNext [disabled]="!createAlertFormGroup.controls.subSystem.value">Next</button>
+              <button mat-button matStepperNext [disabled]="!createAlertFormGroup.controls.subSystem.value">Suivant</button>
             </div>
           </mat-step>
           <mat-step [completed]="!!createAlertFormGroup.controls.element.value">
@@ -90,13 +90,17 @@
         <li>Définissez les seuils inférieur et supérieur pour l'alerte.</li>
         <li>Cliquez sur 'Modifier l'alerte' pour enregistrer.</li>
       </ul>
+      <div *ngIf="!isEdit" class="form-auto">
+        <mat-icon fontIcon="warning" class="icon"></mat-icon>
+        <p>Attention, les éléments du formulaire sont mis à jour en fonction des réponses choisies !</p>
+      </div>
     </div>
   </div>
 
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [disabled]="createAlertFormGroup.invalid" (click)="createAlert()" *ngIf="!isEdit">Créer l'alerte</button>
-  <button mat-button (click)="updateAlert()" *ngIf="isEdit">Modifier l'alerte</button>
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="createAlertFormGroup.invalid" (click)="createAlert()" *ngIf="!isEdit">Créer l'alerte</button>
+  <button mat-raised-button (click)="updateAlert()" *ngIf="isEdit">Modifier l'alerte</button>
 </mat-dialog-actions>

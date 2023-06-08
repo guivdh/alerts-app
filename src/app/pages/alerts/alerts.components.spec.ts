@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
 import {of} from 'rxjs';
@@ -17,6 +17,7 @@ import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {Signal} from "../../models/signal.model";
 import {Alert} from "../../models/alert.model";
 import {CreateAlertDialogComponent} from "../../components/create-alert-dialog/create-alert-dialog.component";
+import {ConfirmationDialogComponent} from "../../components/confirmation-dialog/confirmation-dialog.component";
 
 describe('AlertsComponent', () => {
   let component: AlertsComponent;
@@ -268,11 +269,24 @@ describe('AlertsComponent', () => {
     // Create a spy for the open method of snackBar
     const openSpy = spyOn(snackBar, 'open');
 
+    // Create a spy for the open method of MatDialog
+    const dialogOpenSpy = spyOn(TestBed.inject(MatDialog), 'open').and.returnValue({
+      afterClosed: () => of(true), // Simulate the user confirming the deletion
+      componentInstance: {}, // Add the componentInstance property
+      close: () => {
+      } // Add the close method
+    } as MatDialogRef<any>); // Cast to MatDialogRef<any>
+
+
     // Call the delete method with the mock alert
     component.delete(alert);
 
-    // Expect the delete method to have been called with the alert id
-    expect(deleteSpy).toHaveBeenCalledWith(alert.id);
+    // Expect the open method of MatDialog to have been called with the ConfirmationDialogComponent
+    expect(dialogOpenSpy).toHaveBeenCalledWith(ConfirmationDialogComponent, {
+      data: {
+        text: 'Êtes-vous sûr de vouloir supprimer cette alerte ?'
+      }
+    });
 
     // Expect the snackBar open method to have been called with the correct parameters
     expect(openSpy).toHaveBeenCalledWith(
@@ -284,7 +298,15 @@ describe('AlertsComponent', () => {
         duration: 4000
       }
     );
+
+    // Expect the open method of MatDialog to have been called with the ConfirmationDialogComponent
+    expect(dialogOpenSpy).toHaveBeenCalledWith(ConfirmationDialogComponent, {
+      data: {
+        text: 'Êtes-vous sûr de vouloir supprimer cette alerte ?'
+      }
+    });
   });
+
 
   it('should open the dialog for editing an alert', () => {
     // Mock an alert

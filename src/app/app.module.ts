@@ -22,6 +22,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatCardModule} from "@angular/material/card";
+import {ConfirmationDialogComponent} from './components/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {MatCardModule} from "@angular/material/card";
     AlertsComponent,
     SignalsComponent,
     CreateAlertDialogComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

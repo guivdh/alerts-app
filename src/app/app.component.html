@@ -49,8 +49,8 @@
                   </button>
                 </div>
                 <div class="lists">
-                  <div class="notif-container" *ngFor="let notif of notifications">
-                    <div class="datas">
+                  <div class="notif-container" *ngFor="let notif of notifications" [ngClass]="!notif.isRead ? 'not-read' : ''">
+                    <div class="datas" (click)="markAsRead(notif)">
                       <p>{{notif.date | date}}</p>
                       <p>{{notif.content}}</p>
                       <a [routerLink]="['/' + notif.url]">Voir</a>

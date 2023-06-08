@@ -9,6 +9,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatInputModule} from "@angular/material/input";
 import {Signal} from "../../models/signal.model";
+import {MatIconModule} from "@angular/material/icon";
 
 
 describe('CreateAlertDialogComponent', () => {
@@ -17,7 +18,7 @@ describe('CreateAlertDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatDialogModule, MatSnackBarModule, MatFormFieldModule, MatStepperModule, MatSelectModule, ReactiveFormsModule, BrowserAnimationsModule, MatInputModule],
+      imports: [MatDialogModule, MatSnackBarModule, MatFormFieldModule, MatStepperModule, MatSelectModule, ReactiveFormsModule, BrowserAnimationsModule, MatInputModule, MatIconModule],
       declarations: [CreateAlertDialogComponent],
       providers: [
         {provide: MatDialogRef, useValue: {}},
