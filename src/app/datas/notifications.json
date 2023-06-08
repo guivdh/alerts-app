@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "content": "Notification 1",
+    "date": "2023-06-06T10:30:00.000Z",
+    "url": "alerts",
+    "isRead": false
+  },
+  {
+    "id": 2,
+    "content": "Notification 2",
+    "date": "2023-06-05T15:45:00.000Z",
+    "url": "alerts",
+    "isRead": true
+  },
+  {
+    "id": 3,
+    "content": "Notification 3",
+    "date": "2023-06-04T08:15:00.000Z",
+    "url": "alerts",
+    "isRead": false
+  },
+  {
+    "id": 3,
+    "content": "Notification 3",
+    "date": "2023-06-04T08:15:00.000Z",
+    "url": "alerts",
+    "isRead": false
+  },
+  {
+    "id": 3,
+    "content": "Notification 3",
+    "date": "2023-06-04T08:15:00.000Z",
+    "url": "alerts",
+    "isRead": false
+  },
+  {
+    "id": 3,
+    "content": "Notification 3",
+    "date": "2023-06-04T08:15:00.000Z",
+    "url": "alerts",
+    "isRead": false
+  },
+  {
+    "id": 3,
+    "content": "Notification 3",
+    "date": "2023-06-04T08:15:00.000Z",
+    "url": "alerts",
+    "isRead": false
+  },
+  {
+    "id": 3,
+    "content": "Notification 3",
+    "date": "2023-06-04T08:15:00.000Z",
+    "url": "alerts",
+    "isRead": false
+  }
+]

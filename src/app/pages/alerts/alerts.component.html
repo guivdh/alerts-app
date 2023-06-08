@@ -1,0 +1,99 @@
+<div class="alerts-container">
+
+  <div class="filter-container">
+    <div>
+      <form [formGroup]="alertsFilterGroup">
+        <div class="form-block">
+          <mat-form-field>
+            <mat-label>Component</mat-label>
+            <mat-select formControlName="component">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let v of components" [value]="v">{{v}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>System</mat-label>
+            <mat-select formControlName="system">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let v of system" [value]="v">{{v}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>SubSystem</mat-label>
+            <mat-select formControlName="subSystem">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let v of subSystem" [value]="v">{{v}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Element</mat-label>
+            <mat-select formControlName="element">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let v of element" [value]="v">{{v}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="form-block">
+          <mat-form-field>
+            <mat-label>Min</mat-label>
+            <input matInput type="number" formControlName="min">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Max</mat-label>
+            <input matInput type="number" formControlName="max">
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+    <div class="apply">
+      <button mat-raised-button color="primary" (click)="resetFilter()">Réinitialiser</button>
+      <button mat-raised-button color="primary" (click)="applyFilter()">Appliquer</button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <button mat-raised-button color="primary" class="apply" (click)="downloadFile()">
+      <mat-icon fontIcon="ios_share" class="action"></mat-icon>
+      Exporter
+    </button>
+    <button mat-raised-button color="primary" class="apply" (click)="createOne()">
+      <mat-icon fontIcon="add" class="action"></mat-icon>
+      Créer
+    </button>
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="signal">
+        <th mat-header-cell *matHeaderCellDef> Signal</th>
+        <td mat-cell *matCellDef="let element"> {{element.signal.signalName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="min">
+        <th mat-header-cell *matHeaderCellDef> Min</th>
+        <td mat-cell *matCellDef="let element"> {{element.lowerThreshold}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="max">
+        <th mat-header-cell *matHeaderCellDef> Max</th>
+        <td mat-cell *matCellDef="let element"> {{element.upperThreshold}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions</th>
+        <mat-cell *matCellDef="let row">
+          <div class="actions-cell">
+            <mat-icon aria-hidden="false" class="icon" fontIcon="edit" (click)="edit(row)"></mat-icon>
+            <mat-icon aria-hidden="false" class="icon" fontIcon="delete" (click)="delete(row)"></mat-icon>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

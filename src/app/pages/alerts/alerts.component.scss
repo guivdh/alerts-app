@@ -1,0 +1,68 @@
+.alerts-container {
+  .actions-cell {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px 0;
+
+    .icon {
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .filter-container {
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom: 30px;
+
+    padding: 20px;
+
+    .apply {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      button:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+
+    form {
+      .form-block {
+        mat-form-field {
+          &:not(:last-child) {
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .table-container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+
+    button {
+      float: right;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+
+
+::ng-deep {
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: white;
+  }
+}

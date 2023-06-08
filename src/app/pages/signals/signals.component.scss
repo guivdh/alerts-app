@@ -1,0 +1,48 @@
+.signals-container {
+  padding-bottom: 100px;
+
+  .filter-container {
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    padding: 50px 20px 10px 50px;
+
+    .apply {
+      margin-top: 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      button:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  .table-container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    button {
+      float: right;
+    }
+  }
+
+  form {
+    .form-block {
+      mat-form-field {
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}
+
+
+
+::ng-deep {
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: white;
+  }
+}

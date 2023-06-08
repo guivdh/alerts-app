@@ -1,0 +1,84 @@
+<div class="signals-container">
+
+  <div class="filter-container">
+    <div>
+      <form [formGroup]="signalsFilterGroup">
+        <div class="form-block">
+          <mat-form-field>
+            <mat-label>Component</mat-label>
+            <mat-select formControlName="component">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let v of components" [value]="v">{{v}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>System</mat-label>
+            <mat-select formControlName="system">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let v of system" [value]="v">{{v}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>SubSystem</mat-label>
+            <mat-select formControlName="subSystem">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let v of subSystem" [value]="v">{{v}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Element</mat-label>
+            <mat-select formControlName="element">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let v of element" [value]="v">{{v}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+    <div class="apply">
+      <button mat-raised-button color="primary" (click)="resetFilter()">Réinitialiser</button>
+      <button mat-raised-button color="primary" (click)="applyFilter()">Appliquer</button>
+    </div>
+  </div>
+
+
+  <div class="table-container">
+    <button mat-raised-button color="primary" class="apply" (click)="downloadFile()">
+      <mat-icon fontIcon="ios_share" class="logo"></mat-icon>
+      Exporter
+    </button>
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.signalName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+      <ng-container matColumnDef="component">
+        <th mat-header-cell *matHeaderCellDef> component</th>
+        <td mat-cell *matCellDef="let element"> {{element.component}} </td>
+      </ng-container>
+      <ng-container matColumnDef="system">
+        <th mat-header-cell *matHeaderCellDef> system</th>
+        <td mat-cell *matCellDef="let element"> {{element.system}} </td>
+      </ng-container>
+      <ng-container matColumnDef="subSystem">
+        <th mat-header-cell *matHeaderCellDef> subSystem</th>
+        <td mat-cell *matCellDef="let element"> {{element.subSystem}} </td>
+      </ng-container>
+      <ng-container matColumnDef="element">
+        <th mat-header-cell *matHeaderCellDef> element</th>
+        <td mat-cell *matCellDef="let element"> {{element.element}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+
+</div>

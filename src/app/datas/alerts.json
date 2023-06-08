@@ -1,0 +1,146 @@
+[
+  {
+
+    "id": 1,
+    "signal": {
+      "signalName": "SignalElement55",
+      "description": "Description Element55",
+      "component": "Component4",
+      "system": "System10",
+      "subSystem": "SubSystem22",
+      "element": "Element55"
+    },
+    "lowerThreshold": 1,
+    "upperThreshold": 2
+  },{
+
+    "id": 2,
+    "signal": {
+      "signalName": "SignalElement18",
+      "description": "Description Element18",
+      "component": "Component1",
+      "system": "System3",
+      "subSystem": "SubSystem8",
+      "element": "Element18"
+    },
+    "lowerThreshold": 10,
+    "upperThreshold": 45
+  },{
+
+    "id": 3,
+    "signal": {
+      "signalName": "SignalElement53",
+      "description": "Description Element53",
+      "component": "Component4",
+      "system": "System9",
+      "subSystem": "SubSystem21",
+      "element": "Element53"
+    },
+    "lowerThreshold": 7,
+    "upperThreshold": 20
+  },{
+
+    "id": 4,
+    "signal": {
+      "signalName": "SignalElement11",
+      "description": "Description Element11",
+      "component": "Component1",
+      "system": "System2",
+      "subSystem": "SubSystem5",
+      "element": "Element11"
+    },
+    "lowerThreshold": 2,
+    "upperThreshold": 18
+  },{
+
+    "id": 5,
+    "signal": {
+      "signalName": "SignalElement41",
+      "description": "Description Element41",
+      "component": "Component3",
+      "system": "System7",
+      "subSystem": "SubSystem17",
+      "element": "Element41"
+    },
+    "lowerThreshold": 12,
+    "upperThreshold": 24
+  },{
+
+    "id": 6,
+    "signal": {
+      "signalName": "SignalElement29",
+      "description": "Description Element29",
+      "component": "Component2",
+      "system": "System5",
+      "subSystem": "SubSystem12",
+      "element": "Element29"
+    },
+    "lowerThreshold": 20,
+    "upperThreshold": 45
+  },{
+
+    "id": 7,
+    "signal": {
+      "signalName": "SignalElement12",
+      "description": "Description Element12",
+      "component": "Component1",
+      "system": "System2",
+      "subSystem": "SubSystem5",
+      "element": "Element12"
+    },
+    "lowerThreshold": 4,
+    "upperThreshold": 35
+  },{
+
+    "id": 7,
+    "signal": {
+      "signalName": "SignalElement12",
+      "description": "Description Element12",
+      "component": "Component1",
+      "system": "System2",
+      "subSystem": "SubSystem5",
+      "element": "Element12"
+    },
+    "lowerThreshold": 4,
+    "upperThreshold": 35
+  },{
+
+    "id": 7,
+    "signal": {
+      "signalName": "SignalElement12",
+      "description": "Description Element12",
+      "component": "Component1",
+      "system": "System2",
+      "subSystem": "SubSystem5",
+      "element": "Element12"
+    },
+    "lowerThreshold": 4,
+    "upperThreshold": 35
+  },{
+
+    "id": 7,
+    "signal": {
+      "signalName": "SignalElement12",
+      "description": "Description Element12",
+      "component": "Component1",
+      "system": "System2",
+      "subSystem": "SubSystem5",
+      "element": "Element12"
+    },
+    "lowerThreshold": 4,
+    "upperThreshold": 35
+  },{
+
+    "id": 7,
+    "signal": {
+      "signalName": "SignalElement12",
+      "description": "Description Element12",
+      "component": "Component1",
+      "system": "System2",
+      "subSystem": "SubSystem5",
+      "element": "Element12"
+    },
+    "lowerThreshold": 4,
+    "upperThreshold": 35
+  }
+]

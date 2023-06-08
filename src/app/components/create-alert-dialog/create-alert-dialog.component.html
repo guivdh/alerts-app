@@ -1,0 +1,102 @@
+<h2 mat-dialog-title>{{isEdit ? 'Modifier ' : 'Créer '}} une alerte</h2>
+<mat-dialog-content class="dialog">
+  <div class="alert-dialog-container">
+    <div class="form-container">
+      <div *ngIf="isEdit">
+        <mat-card>
+          <mat-card-content>
+            <p>Signal: {{currentSignal.signalName}}</p>
+            <p>Composent: {{currentSignal.component}}</p>
+            <p>Système: {{currentSignal.system}}</p>
+            <p>Sub-système: {{currentSignal.subSystem}}</p>
+            <p>Élement: {{currentSignal.element}}</p>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+      <mat-stepper orientation="vertical" [linear]="true" class="form-stepper" *ngIf="!isEdit">
+        <form [formGroup]="createAlertFormGroup">
+          <mat-step [completed]="!!createAlertFormGroup.controls.component.value">
+            <ng-template matStepLabel>Composant <span *ngIf="createAlertFormGroup.controls.component.value">{{' - ' + createAlertFormGroup.controls.component.value}}</span></ng-template>
+            <mat-form-field>
+              <mat-select (selectionChange)="onComponentSelected()" formControlName="component">
+                <mat-option *ngFor="let v of components" [value]="v">{{v}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext [disabled]="!createAlertFormGroup.controls.component.value">Next</button>
+            </div>
+          </mat-step>
+          <mat-step [completed]="!!createAlertFormGroup.controls.system.value">
+            <ng-template matStepLabel>système <span *ngIf="createAlertFormGroup.controls.system.value">{{' - ' + createAlertFormGroup.controls.system.value}}</span></ng-template>
+            <mat-form-field>
+              <mat-select (selectionChange)="onSystemSelected()" formControlName="system">
+                <mat-option *ngFor="let v of system" [value]="v">{{v}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext [disabled]="!createAlertFormGroup.controls.system.value">Next</button>
+            </div>
+          </mat-step>
+          <mat-step [completed]="!!createAlertFormGroup.controls.subSystem.value">
+            <ng-template matStepLabel>sous-système <span *ngIf="createAlertFormGroup.controls.subSystem.value">{{' - ' + createAlertFormGroup.controls.subSystem.value}}</span></ng-template>
+            <mat-form-field>
+              <mat-select (selectionChange)="onSubSystemSelected()" formControlName="subSystem">
+                <mat-option *ngFor="let v of subSystem" [value]="v">{{v}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext [disabled]="!createAlertFormGroup.controls.subSystem.value">Next</button>
+            </div>
+          </mat-step>
+          <mat-step [completed]="!!createAlertFormGroup.controls.element.value">
+            <ng-template matStepLabel>Element <span *ngIf="createAlertFormGroup.controls.element.value">{{' - ' + createAlertFormGroup.controls.element.value}}</span></ng-template>
+            <mat-form-field>
+              <mat-select formControlName="element">
+                <mat-option *ngFor="let v of element" [value]="v">{{v}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-step>
+        </form>
+      </mat-stepper>
+      <div class="form-threshold">
+        <form [formGroup]="createAlertFormGroup">
+          <mat-form-field>
+            <mat-label>Min</mat-label>
+            <input matInput type="number" formControlName="min">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Max</mat-label>
+            <input matInput type="number" formControlName="max">
+          </mat-form-field>
+        </form>
+      </div>
+
+      <mat-error *ngIf="createAlertFormGroup.controls.max.errors?.['minGreaterThanMax']">
+        La valeur maximale doit être supérieure à la valeur minimale.
+      </mat-error>
+    </div>
+
+    <div class="form-part-2">
+      <ul *ngIf="!isEdit">
+        <li>Choisissez un composant.</li>
+        <li>Sélectionnez un système lié au composant choisi.</li>
+        <li>Choisissez un sous-système spécifique.</li>
+        <li>Sélectionnez l'élément que vous souhaitez surveiller.</li>
+        <li>Définissez les seuils inférieur et supérieur pour l'alerte.</li>
+        <li>Cliquez sur 'Créer l'alerte' pour enregistrer.</li>
+      </ul>
+      <ul *ngIf="isEdit">
+        <li>Définissez les seuils inférieur et supérieur pour l'alerte.</li>
+        <li>Cliquez sur 'Modifier l'alerte' pour enregistrer.</li>
+      </ul>
+    </div>
+  </div>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [disabled]="createAlertFormGroup.invalid" (click)="createAlert()" *ngIf="!isEdit">Créer l'alerte</button>
+  <button mat-button (click)="updateAlert()" *ngIf="isEdit">Modifier l'alerte</button>
+</mat-dialog-actions>
