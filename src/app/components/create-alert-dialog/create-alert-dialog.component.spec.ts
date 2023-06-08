@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {CreateAlertDialogComponent} from "./create-alert-dialog.component";
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
@@ -18,10 +18,10 @@ describe('CreateAlertDialogComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatDialogModule, MatSnackBarModule, MatFormFieldModule, MatStepperModule, MatSelectModule, ReactiveFormsModule, BrowserAnimationsModule, MatInputModule],
-      declarations: [ CreateAlertDialogComponent ],
+      declarations: [CreateAlertDialogComponent],
       providers: [
         {provide: MatDialogRef, useValue: {}},
-        { provide: MAT_DIALOG_DATA, useValue: {} },
+        {provide: MAT_DIALOG_DATA, useValue: {}},
       ]
     })
       .compileComponents();
@@ -66,8 +66,8 @@ describe('CreateAlertDialogComponent', () => {
   it('should return false when the matching signal is not found', () => {
     // Arrange
     component.signals = [
-      { component: 'Component1', system: 'System1', subSystem: 'SubSystem1', element: 'Element1', signalName: '', description: '' },
-      { component: 'Component2', system: 'System2', subSystem: 'SubSystem2', element: 'Element2', signalName: '', description: '' }
+      {component: 'Component1', system: 'System1', subSystem: 'SubSystem1', element: 'Element1', signalName: '', description: ''},
+      {component: 'Component2', system: 'System2', subSystem: 'SubSystem2', element: 'Element2', signalName: '', description: ''}
     ];
     component.createAlertFormGroup.controls.component.setValue('Component3'); // Signal not found
     component.createAlertFormGroup.controls.system.setValue('System1');
@@ -86,14 +86,16 @@ describe('CreateAlertDialogComponent', () => {
   it('should return true when all conditions are met', () => {
 
     component.signals = [
-      { "signalName": "SignalElement55",
+      {
+        "signalName": "SignalElement55",
         "description": "Description Element55",
         "component": "Component4",
         "system": "System10",
         "subSystem": "SubSystem22",
         "element": "Element55"
       },
-      { "signalName": "SignalElement18",
+      {
+        "signalName": "SignalElement18",
         "description": "Description Element18",
         "component": "Component1",
         "system": "System3",
@@ -181,7 +183,7 @@ describe('CreateAlertDialogComponent', () => {
 
   it('should set the select elements correctly based on the filtered signals', () => {
     // Arrange
-    component.components  = [];
+    component.components = [];
     const filteredSignals: Signal[] = [
       {
         signalName: 'SignalElement18',
@@ -207,7 +209,7 @@ describe('CreateAlertDialogComponent', () => {
   it('should set the select elements to empty arrays if filtered signals is empty', () => {
     // Arrange
 
-    component.components  = [];
+    component.components = [];
     const filteredSignals: Signal[] = [];
     component.filteredSignals = filteredSignals;
 

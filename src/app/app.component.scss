@@ -90,6 +90,7 @@
 
   .notification-container {
     position: relative;
+
     .notification-box {
       position: absolute;
       top: calc(100%); /* Position juste en dessous du bouton de notification */
@@ -105,14 +106,17 @@
       align-items: flex-start;
       display: none;
       flex-direction: column;
+
       .lists {
         flex-direction: column;
         width: 100%;
       }
+
       .notification-box-wrapper {
         display: flex;
         flex-direction: column;
         position: relative;
+
         button {
           margin-bottom: 10px;
         }
@@ -136,17 +140,21 @@
           align-items: flex-start;
           padding: 5px;
         }
+
         p {
           margin: 0;
         }
+
         .close {
           cursor: pointer;
         }
       }
+
       .mark-as-read {
         position: sticky;
       }
     }
+
     .notif {
       cursor: pointer;
     }
@@ -163,6 +171,7 @@
       border-radius: 50%;
       width: 15px;
       height: 15px;
+
       p {
         margin: 0;
         color: white;

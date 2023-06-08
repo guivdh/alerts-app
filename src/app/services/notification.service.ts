@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Notif} from "../models/notification.model";
 import {BehaviorSubject, Observable} from "rxjs";
-import {Alert} from "../models/alert.model";
 import * as notificationsDatas from "../datas/notifications.json";
 
 @Injectable({
@@ -13,7 +12,8 @@ export class NotificationService {
   public notifications$: Observable<Notif[]> = this._notifications$.asObservable();
 
 
-  constructor() { }
+  constructor() {
+  }
 
   createNotification(content: string, url: string) {
     let notif: Notif = {

@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
-import {of} from 'rxjs';
 import {AlertService} from '../../services/alert.service';
 import {SignalService} from '../../services/signal.service';
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -11,7 +10,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
-import {MatTableDataSource, MatTableModule} from "@angular/material/table";
+import {MatTableModule} from "@angular/material/table";
 import {SignalsComponent} from "./signals.component";
 import {Signal} from "../../models/signal.model";
 import {saveAs} from "file-saver";
@@ -32,14 +31,14 @@ describe('SignalsComponent', () => {
         system: 'System2',
         subSystem: 'SubSystem5',
         element: 'Element12'
-      },{
+      }, {
         signalName: "SignalElement23",
         description: "Description Element23",
         component: "Component2",
         system: "System4",
         subSystem: "SubSystem10",
         element: "Element23"
-      },{
+      }, {
         signalName: "SignalElement49",
         description: "Description Element49",
         component: "Component4",
@@ -70,7 +69,7 @@ describe('SignalsComponent', () => {
         AlertService,
         SignalService,
         FormBuilder,
-        { provide: SignalService, useValue: signalServiceMock },
+        {provide: SignalService, useValue: signalServiceMock},
       ]
     }).compileComponents();
   });

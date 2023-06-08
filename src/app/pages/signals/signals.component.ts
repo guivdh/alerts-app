@@ -1,10 +1,9 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {SignalService} from "../../services/signal.service";
 import {Signal} from "../../models/signal.model";
 import {FormBuilder} from "@angular/forms";
 import {MatTable, MatTableDataSource} from "@angular/material/table";
-import { saveAs } from 'file-saver';
-import {MatPaginator} from "@angular/material/paginator";
+import {saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-signals',
@@ -116,7 +115,7 @@ export class SignalsComponent implements OnInit {
     });
 
     const csvString = csvRows.join('\r\n');
-    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8,' });
+    const blob = new Blob([csvString], {type: 'text/csv;charset=utf-8,'});
     saveAs(blob, 'signals.csv');
   }
 

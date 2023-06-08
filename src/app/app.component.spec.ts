@@ -1,5 +1,5 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed} from '@angular/core/testing';
+import {AppComponent} from './app.component';
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
 import {RouterModule} from "@angular/router";
@@ -12,8 +12,8 @@ describe('AppComponent', () => {
         AppComponent
       ],
       providers: [
-      {provide: MatDialogRef, useValue: {}}
-    ]
+        {provide: MatDialogRef, useValue: {}}
+      ]
     }).compileComponents();
   });
 

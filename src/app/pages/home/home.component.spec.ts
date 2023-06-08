@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import {HomeComponent} from './home.component';
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
 import {ActivatedRoute, RouterModule} from "@angular/router";
@@ -12,13 +12,13 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatDialogModule, MatIconModule, RouterModule],
-      declarations: [ HomeComponent],
+      declarations: [HomeComponent],
       providers: [
         {provide: MatDialogRef, useValue: {}},
         {provide: ActivatedRoute, useValue: {}}
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
