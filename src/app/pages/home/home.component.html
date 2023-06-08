@@ -4,37 +4,37 @@
       <div class="welcome-box">
         <img src="assets/google-alerts-logo-8D260EAA55-seeklogo.com.png" alt="img">
         <div class="infos">
-          <h2>Bienvenue dans l'application de gestion d'alertes de signaux !</h2>
+          <h2>Welcome to the Signal Alerts Management Application!</h2>
           <div class="desc">
             <mat-icon fontIcon="infos" class="icon"></mat-icon>
-            <p>L' application vous permet de créer, gérer et surveiller les alertes associées aux signaux de votre système.</p>
+            <p>The application allows you to create, manage, and monitor alerts associated with signals in your system.</p>
           </div>
         </div>
       </div>
       <div class="infos-boxes">
         <div class="alerts-box infos-box" [routerLink]="['/alerts']">
-          <p class="title">Il y a actuellement</p>
+          <p class="title">Currently, there are</p>
           <p class="number">{{alerts.length}}</p>
           <div class="is">
             <mat-icon fontIcon="notifications" class="icon"></mat-icon>
-            alertes
+            alerts
           </div>
         </div>
         <div class="signals-box infos-box" [routerLink]="['/signals']">
           <div class="title">
-            <p>Il y a actuellement</p>
+            <p>Currently, there are</p>
           </div>
           <p class="number">{{signals.length}}</p>
           <div class="is">
             <mat-icon fontIcon="signal_cellular_alt" class="icon"></mat-icon>
-            signaux
+            signals
           </div>
         </div>
       </div>
     </div>
     <div class="right-part">
       <div class="recent-signals">
-        <h2>Signaux récents</h2>
+        <h2>Recent Signals</h2>
         <div class="recent-signal" *ngFor="let signal of recentSignals">
           <p class="title">{{signal.signalName}}</p>
           <p class="desc">{{signal.description}}</p>

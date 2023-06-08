@@ -4,13 +4,13 @@
       <li>
         <a routerLink="/home" routerLinkActive="active">
           <mat-icon fontIcon="home" class="icon"></mat-icon>
-          <label>Accueil</label>
+          <label>Home</label>
         </a>
       </li>
       <li>
         <a routerLink="/alerts" routerLinkActive="active">
           <mat-icon fontIcon="notifications" class="icon"></mat-icon>
-          <label>Alertes</label>
+          <label>Alerts</label>
         </a>
       </li>
       <li>
@@ -32,7 +32,7 @@
       <div>
         <button mat-stroked-button (click)="openCreateAlertDialog()">
           <mat-icon>add</mat-icon>
-          <label>Créer une alerte</label>
+          <label>Create an alert</label>
         </button>
         <div class="notification-container">
           <mat-icon fontIcon="notifications" class="notif" (click)="displayNotifs()"></mat-icon>
@@ -45,7 +45,7 @@
                 <div class="mark-as-read">
                   <button mat-raised-button color="primary" (click)="markAllNotifAsRead()">
                     <mat-icon>check</mat-icon>
-                    <label>Marquer tout comme lu</label>
+                    <label>Mark all as read</label>
                   </button>
                 </div>
                 <div class="lists">
@@ -53,7 +53,7 @@
                     <div class="datas" (click)="markAsRead(notif)">
                       <p>{{notif.date | date}}</p>
                       <p>{{notif.content}}</p>
-                      <a [routerLink]="['/' + notif.url]">Voir</a>
+                      <a [routerLink]="['/' + notif.url]">View</a>
                     </div>
                     <div>
                       <mat-icon fontIcon="close" class="close" (click)="deleteNotif(notif.id)"></mat-icon>
@@ -62,11 +62,10 @@
                 </div>
               </div>
               <div *ngIf="notifications && !notifications.length">
-                <p>Aucune notification pour le moment</p>
+                <p>No notifications at the moment</p>
               </div>
             </div>
           </ng-container>
-
         </div>
       </div>
     </div>

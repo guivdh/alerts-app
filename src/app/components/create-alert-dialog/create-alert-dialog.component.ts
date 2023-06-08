@@ -151,7 +151,7 @@ export class CreateAlertDialogComponent implements OnInit {
       const res = this.alertService.updateAlert(this.data.alert, this.createAlertFormGroup.value);
       if (res) {
         this.dialogRef.close();
-        this.snackBar.open('Alerte modifiée avec succès !', undefined, {
+        this.snackBar.open('Alert modified successfully !', undefined, {
           horizontalPosition: 'end',
           verticalPosition: 'bottom',
           duration: 4000
@@ -168,7 +168,7 @@ export class CreateAlertDialogComponent implements OnInit {
     const res = this.alertService.createAlert(signal, this.createAlertFormGroup.value);
     if (res) {
       this.dialogRef.close();
-      const snackBarRef = this.snackBar.open('Alerte créée avec succès !', 'voir', {
+      const snackBarRef = this.snackBar.open('Alert created successfully !', 'view', {
         horizontalPosition: 'end',
         verticalPosition: 'bottom',
         duration: 4000

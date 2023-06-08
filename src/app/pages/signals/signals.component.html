@@ -39,8 +39,8 @@
       </form>
     </div>
     <div class="apply">
-      <button mat-raised-button color="primary" (click)="resetFilter()">Réinitialiser</button>
-      <button mat-raised-button color="primary" (click)="applyFilter()">Appliquer</button>
+      <button mat-raised-button color="primary" (click)="resetFilter()">Reset</button>
+      <button mat-raised-button color="primary" (click)="applyFilter()">Apply</button>
     </div>
   </div>
 
@@ -48,7 +48,7 @@
   <div class="table-container">
     <button mat-raised-button color="primary" class="apply" (click)="downloadFile()">
       <mat-icon fontIcon="ios_share" class="logo"></mat-icon>
-      Exporter
+      Export
     </button>
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="name">

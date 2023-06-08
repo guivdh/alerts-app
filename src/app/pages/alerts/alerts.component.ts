@@ -110,7 +110,7 @@ export class AlertsComponent implements OnInit {
   delete(row: Alert) {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {
-        text: 'Êtes-vous sûr de vouloir supprimer cette alerte ?'
+        text: 'Are you sure you want to delete this alert ?'
       }
     });
 
@@ -118,7 +118,7 @@ export class AlertsComponent implements OnInit {
       if (result === true) {
         const res = this.alertService.delete(row.id);
         if (res) {
-          this.snackBar.open('Alerte supprimée avec succès !', undefined, {
+          this.snackBar.open('Alert deleted successfully !', undefined, {
             horizontalPosition: 'end',
             verticalPosition: 'bottom',
             duration: 4000

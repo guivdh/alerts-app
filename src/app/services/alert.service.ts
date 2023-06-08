@@ -35,7 +35,7 @@ export class AlertService {
         upperThreshold: values.max
       };
       this._alerts$.next([...this._alerts$.value, alert]);
-      this.notificationService.createNotification('Alerte créée', 'alerts');
+      this.notificationService.createNotification('Alert created successfully !', 'alerts');
       return alert;
     }
     return null;

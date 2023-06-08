@@ -284,13 +284,13 @@ describe('AlertsComponent', () => {
     // Expect the open method of MatDialog to have been called with the ConfirmationDialogComponent
     expect(dialogOpenSpy).toHaveBeenCalledWith(ConfirmationDialogComponent, {
       data: {
-        text: 'Êtes-vous sûr de vouloir supprimer cette alerte ?'
+        text: 'Are you sure you want to delete this alert ?'
       }
     });
 
     // Expect the snackBar open method to have been called with the correct parameters
     expect(openSpy).toHaveBeenCalledWith(
-      'Alerte supprimée avec succès !',
+      'Alert deleted successfully !',
       undefined,
       {
         horizontalPosition: 'end',
@@ -302,7 +302,7 @@ describe('AlertsComponent', () => {
     // Expect the open method of MatDialog to have been called with the ConfirmationDialogComponent
     expect(dialogOpenSpy).toHaveBeenCalledWith(ConfirmationDialogComponent, {
       data: {
-        text: 'Êtes-vous sûr de vouloir supprimer cette alerte ?'
+        text: 'Are you sure you want to delete this alert ?'
       }
     });
   });

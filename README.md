@@ -39,3 +39,22 @@ The available signals have been given to us in a JSON file named `signals.json`
 - Tests should be added if necessary;
 - We have to demonstrate our application to the Product Owner and explain our implementation choices.
 
+## Installation
+
+```bash
+$ npm install
+```
+
+## Running the app
+
+```bash
+$ ng serve
+```
+
+## Test
+
+```bash
+# unit tests
+$ ng test
+```
+
