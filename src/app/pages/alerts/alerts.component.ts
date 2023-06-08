@@ -168,12 +168,22 @@ export class AlertsComponent implements OnInit {
   // Download the alerts as a CSV file
   downloadFile() {
     const header = Object.keys(this.filteredAlerts[0]);
-    const csvRows = [];
 
-    csvRows.push(header.join(';'));
+    // Exclure la clé "signal" de l'en-tête
+    const extendedHeader = header.filter(key => key !== 'signal');
+
+    // Ajouter les clés du signal comme en-têtes supplémentaires
+    const signalKeys = Object.keys(this.filteredAlerts[0].signal);
+    const completeHeader = [...extendedHeader, ...signalKeys];
+
+    const csvRows = [];
+    csvRows.push(completeHeader.join(';'));
 
     this.filteredAlerts.forEach((row: any) => {
-      const values = header.map((fieldName: any) => row[fieldName]);
+      // Exclure la valeur de la clé "signal" lors de la construction de la ligne CSV
+      const signalValues = Object.values(row.signal);
+      const rowValues = Object.values(row).filter((val, index) => extendedHeader.includes(header[index])); // Filtrer les valeurs pour correspondre à l'en-tête
+      const values = [...rowValues, ...signalValues.map(val => JSON.stringify(val))]; // Convertir chaque valeur du signal en une chaîne JSON
       csvRows.push(values.join(';'));
     });
 
