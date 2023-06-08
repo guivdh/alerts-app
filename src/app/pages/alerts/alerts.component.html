@@ -2,6 +2,7 @@
 
   <div class="filter-container">
     <div>
+      <h2>Search</h2>
       <form [formGroup]="alertsFilterGroup">
         <div class="form-block">
           <mat-form-field>
@@ -86,8 +87,8 @@
         <th mat-header-cell *matHeaderCellDef> Actions</th>
         <mat-cell *matCellDef="let row">
           <div class="actions-cell">
-            <mat-icon aria-hidden="false" class="icon" fontIcon="edit" (click)="edit(row)"></mat-icon>
-            <mat-icon aria-hidden="false" class="icon" fontIcon="delete" (click)="delete(row)"></mat-icon>
+            <mat-icon tabindex="0" aria-hidden="false" class="icon" fontIcon="edit" (click)="edit(row)"></mat-icon>
+            <mat-icon tabindex="0" aria-hidden="false" class="icon" fontIcon="delete" (click)="delete(row)"></mat-icon>
           </div>
         </mat-cell>
       </ng-container>

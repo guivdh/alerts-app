@@ -101,5 +101,5 @@
 <mat-dialog-actions align="end">
   <button mat-raised-button mat-dialog-close>Cancel</button>
   <button mat-raised-button color="primary" [disabled]="createAlertFormGroup.invalid" (click)="createAlert()" *ngIf="!isEdit">Create Alert</button>
-  <button mat-raised-button (click)="updateAlert()" *ngIf="isEdit">Edit Alert</button>
+  <button mat-raised-button color="primary" (click)="updateAlert()" *ngIf="isEdit">Edit Alert</button>
 </mat-dialog-actions>

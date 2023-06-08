@@ -35,7 +35,7 @@
           <label>Create an alert</label>
         </button>
         <div class="notification-container">
-          <mat-icon fontIcon="notifications" class="notif" (click)="displayNotifs()"></mat-icon>
+          <mat-icon tabindex="0" fontIcon="notifications" class="notif" (click)="displayNotifs()" (tap)="displayNotifs()"></mat-icon>
           <div class="notifs-nbr" *ngIf="getNotificationsUnRead() > 0">
             <p>{{getNotificationsUnRead()}}</p>
           </div>
