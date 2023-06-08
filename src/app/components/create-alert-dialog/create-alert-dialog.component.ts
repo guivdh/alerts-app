@@ -191,7 +191,7 @@ export class CreateAlertDialogComponent implements OnInit {
     const minValue = this.createAlertFormGroup.value.min ?? 0;
     const maxValue = this.createAlertFormGroup.value.max ?? 0;
 
-    if (minValue > maxValue) {
+    if (minValue > maxValue || minValue === maxValue) {
       this.createAlertFormGroup.controls.max.setErrors({ minGreaterThanMax: true });
       return false;
     }
